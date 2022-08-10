@@ -1,30 +1,33 @@
 import json
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
 from main.functions import generate_form_error
 
 from web.forms import ContactForm
-from web.models import CollegeDetail, CollegeNew, Contact, Course, Developer, LatestEvent, Testimonial
+from web.models import CollegeDetail, CollegeNew, Contact, Department, Developer, Event, EventGallery, Facility, Gallery, LatestEvent, Teacher, Testimonial
 
 
 def index(request):
     college_details = CollegeDetail.objects.all()
     college_news = CollegeNew.objects.all() 
     latest_events = LatestEvent.objects.all()
-    courses = Course.objects.all()
+    departments = Department.objects.all()
     testimonials = Testimonial.objects.all()
     developers = Developer.objects.all()
+    facilities = Facility.objects.all() 
+    events = Event.objects.all()
 
     context = {
         "title" : "Jamia Nadwiyya Art Science College",
         "college_details" : college_details,
         "college_news" : college_news,
         "latest_events" : latest_events,
-        "courses" : courses,
+        "departments" : departments,
         "testimonials" : testimonials,
         "developers" : developers,
-
+        "facilities" : facilities,
+        "events": events,
     }
 
     return render(request, 'web/index.html', context=context)
@@ -93,4 +96,44 @@ def download(request):
     }
 
     return render(request, 'form/pdf.html', context=context)
-    
+   
+   
+def facility(request, id):
+    facilities = get_object_or_404(Facility, id=id)
+
+    if Gallery.objects.filter(facility=facilities).exists():
+        galleries = Gallery.objects.filter(facility=facilities)
+
+        context = {
+            "title" : "JNE | Facilities",
+            "facilities" : facilities,
+            "galleries" : galleries,
+        }
+
+        return render(request, 'single page/facility.html', context=context)
+
+
+def department(request, id):
+    department = get_object_or_404(Department, id=id)
+    teachers = Teacher.objects.filter(department=department)
+
+    context = {
+        "title" : "JNE | Department",
+        "department" : department,
+        "teachers" : teachers,
+    }
+
+    return render(request, 'single page/department.html', context=context)
+
+
+def event(request, id):
+    events = get_object_or_404(Event, id=id)
+    event_gallery = EventGallery.objects.filter(event=events)
+
+    context = {
+        "title" : "JNE | Events",
+        "events" : events,
+        "event_gallery" : event_gallery,
+    }
+
+    return render(request, 'single page/event.html', context=context)

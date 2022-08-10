@@ -1,8 +1,3 @@
-var loader = document.getElementById("loader");
-window.addEventListener("load", function () {
-  loader.style.display = "none";
-});
-
 // smooth-scrolling
 function scrollTopBtn() {
   window.scrollTo({
