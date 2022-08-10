@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block content %} {% load static %} 
+{% include 'web/includes/header.html' %}
+    <span class="overlay"></span>
+    <section id="teachers">
+      <div class="top">
+        <h1>Department Of BCA</h1>
+        <span>BACHELOR OF COMPUTER APPLICATION</span>
+      </div>
+      <div class="wrapper">
+        <div class="hod">
+          <div class="main">
+            <div class="image-box">
+              <img src="./images/Bca-faisal.JPG" alt="Bca-faisal" />
+            </div>
+            <div class="name">
+              <h4>Faizal K.S</h4>
+              <span>HOD OF BCA</span>
+            </div>
+          </div>
+          <div class="contact">
+            <a href="tel:+919895470067">
+              <small class="icon"><i class="fas fa-phone-alt"></i></small>
+              <small>Contact</small>
+            </a>
+          </div>
+        </div>
+        <ul class="profiles">
+          <li>
+            <div class="image-box">
+              <img src="./images/Bca-mufeeda.JPG" alt="Bca-mufeeda" />
+            </div>
+            <div class="name">
+              <h4>Mufeeda K</h4>
+              <span>TEACHER</span>
+            </div>
+          </li>
+          <li>
+            <div class="image-box">
+              <img src="./images/Bca-salim.JPG" alt="Bca-salim" />
+            </div>
+            <div class="name">
+              <h4>Muhammed Salim C.T</h4>
+              <span>TEACHER</span>
+            </div>
+          </li>
+          <li>
+            <div class="image-box">
+              <img src="./images/Bca-vidya.jpg" alt="Bca-vidya" />
+            </div>
+            <div class="name">
+              <h4>Vidya Rakesh</h4>
+              <span>TEACHER</span>
+            </div>
+          </li>
+          <li>
+            <div class="image-box">
+              <img src="./images/Bca-shifana.jpg" alt="Bca-shifana" />
+            </div>
+            <div class="name">
+              <h4>Shifana K.P</h4>
+              <span>TEACHER</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+{% include 'web/includes/footer.html' %}
+{% endblock %}
