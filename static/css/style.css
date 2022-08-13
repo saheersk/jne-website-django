@@ -2657,6 +2657,37 @@ footer .copy-text p span {
   margin-right: 40px;
 }
 
+.error {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.error .text {
+  text-align: center;
+}
+
+.error .text h2 {
+  font-size: 38px;
+  margin-bottom: 16px;
+  color: #0176ac;
+}
+
+.error .text h4 {
+  font-size: 20px;
+  color: #00b0e2;
+}
+
+.error .img-container {
+  width: 400px;
+}
+
+.error .img-container img {
+  width: 100%;
+  display: block;
+}
 /* media-screen */
 @media all and (max-width: 1280px) {
   main .main-text h1 {

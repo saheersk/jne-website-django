@@ -46,7 +46,7 @@ def form(request):
                 "message" : "Thank you of choosing JNE",
                 "status" : "success",
                 "redirect" : "yes",
-                "redirect_url" : "download/"
+                "redirect_url" : "download/"+ str(instance.id)
             }
         
         else:
@@ -87,8 +87,9 @@ def form(request):
         return render(request, 'form/form.html', context=context)
 
 
-def download(request):
-    form = Contact.objects.filter().latest("id")
+def download(request, id):
+    # form = Contact.objects.filter().latest("id")
+    form = get_object_or_404(Contact, id=id)
 
     context = {
         "title" : "JNE | Application form download",

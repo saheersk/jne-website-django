@@ -11,5 +11,5 @@ urlpatterns = [
     path('department/<int:id>/', views.department, name='department'),
     path('event/<int:id>/', views.event, name='event'),
     path('application/', views.form, name='form'),
-    path('application/download/', views.download, name='download'),
+    path('application/download/<int:id>/', views.download, name='download'),
 ]
